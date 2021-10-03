@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ShopShop</string>
+    <string name="enter_your_account">Entre com sua conta</string>
+    <string name="email">Email*</string>
+    <string name="password">Senha*</string>
+    <string name="forgot_password">Esqueceu sua senha?</string>
+</resources>
