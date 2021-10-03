@@ -4,4 +4,7 @@
     <string name="email">Email*</string>
     <string name="password">Senha*</string>
     <string name="forgot_password">Esqueceu sua senha?</string>
+    <string name="login">Login</string>
+    <string name="register_now">Cadastrar Agora</string>
+    <string name="dont_have_account">Não tem conta?</string>
 </resources>

@@ -2,4 +2,5 @@
 <resources>
     <dimen name="large_title">32sp</dimen>
     <dimen name="normal_title">26sp</dimen>
+    <dimen name="normal_text">16dp</dimen>
 </resources>

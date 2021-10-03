@@ -6,10 +6,11 @@
         <entry key="..\:/Projects/ShopShop/app/src/main/res/drawable-v24/ic_wave.xml" value="0.2203125" />
         <entry key="..\:/Projects/ShopShop/app/src/main/res/drawable-v24/ic_wave2.xml" value="0.2203125" />
         <entry key="..\:/Projects/ShopShop/app/src/main/res/drawable/bottom_type.xml" value="0.9" />
+        <entry key="..\:/Projects/ShopShop/app/src/main/res/drawable/button_primary.xml" value="0.2203125" />
         <entry key="..\:/Projects/ShopShop/app/src/main/res/drawable/ic_email.xml" value="0.2203125" />
         <entry key="..\:/Projects/ShopShop/app/src/main/res/drawable/ic_key.xml" value="0.2203125" />
         <entry key="..\:/Projects/ShopShop/app/src/main/res/layout/activity_main.xml" value="0.4429378531073446" />
-        <entry key="..\:/Projects/ShopShop/app/src/main/res/layout/activity_sign_in.xml" value="0.5" />
+        <entry key="..\:/Projects/ShopShop/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
         <entry key="..\:/Projects/ShopShop/app/src/main/res/layout/list_item.xml" value="0.5" />
       </map>
     </option>
