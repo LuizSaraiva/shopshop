@@ -7,4 +7,7 @@
     <string name="login">Login</string>
     <string name="register_now">Cadastrar Agora</string>
     <string name="dont_have_account">Não tem conta?</string>
+    <string name="register">Cadastrar</string>
+    <string name="do_have_account">Já tem conta?</string>
+    <string name="to_do_login">Fazer login</string>
 </resources>

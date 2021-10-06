@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#68E3F2FD"
-    tools:context=".SignInActivity">
+    tools:context=".SignUpActivity">
 
     <ImageView
         android:id="@+id/login_img_wave"
@@ -109,6 +109,21 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Confirmar senha*">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_key"
+                    android:inputType="numberPassword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -118,13 +133,14 @@
 
 
             <Button
+                android:id="@+id/btn_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="32dp"
                 android:background="@drawable/button_primary"
                 android:fontFamily="@font/yantramanav_black"
-                android:text="@string/login"
+                android:text="@string/register"
                 android:textColor="@color/white" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -139,19 +155,19 @@
         app:layout_constraintTop_toBottomOf="@id/cv_login">
 
         <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/dont_have_account"
+            android:layout_width="wrap_content"
+            android:text="@string/do_have_account"
             android:textColor="@color/black"
             android:textSize="@dimen/normal_text"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv_create_account"
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_do_login"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="@string/register_now"
+            android:layout_width="wrap_content"
+            android:text="@string/to_do_login"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/normal_text"
             android:textStyle="bold" />

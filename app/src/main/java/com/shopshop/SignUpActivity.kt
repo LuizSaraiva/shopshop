@@ -6,13 +6,13 @@ import android.os.Bundle
 import android.view.WindowManager
 import android.widget.TextView
 
-class SignInActivity : AppCompatActivity() {
+class SignUpActivity : AppCompatActivity() {
 
     lateinit var btnRegiterNow: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_in)
+        setContentView(R.layout.activity_sign_up)
 
         window.setFlags(
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
@@ -24,14 +24,13 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun listener() {
-        btnRegiterNow = findViewById(R.id.tv_create_account)
+        btnRegiterNow = findViewById(R.id.tv_do_login)
 
     }
 
     private fun clicked() {
         btnRegiterNow.setOnClickListener {
-            startActivity(Intent(this, SignUpActivity::class.java))
+            finish()
         }
     }
-
 }
