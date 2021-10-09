@@ -50,22 +50,24 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun doLogin() {
-
         val email = this.binding.tieEmail.text.toString()
         val pass = this.binding.tiePass.text.toString()
 
         val user = RequestUser(null, pass, email)
         remoteData.login(user) { token, throwable ->
-            if (token != null) {
-                MainActivity.launch(this@SignInActivity)
-            } else {
-                Toast.makeText(
-                    this@SignInActivity,
-                    getString(R.string.user_pass_invalid),
-                    Toast.LENGTH_SHORT
-                ).show()
+
+            runOnUiThread {
+                if (token != null) {
+                    MainActivity.launch(this@SignInActivity)
+                } else {
+                    Toast.makeText(
+                        this@SignInActivity,
+                        getString(R.string.user_pass_invalid),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                binding.btnLogin.hideProgress(R.string.login)
             }
-            println(token)
         }
     }
 

@@ -1,13 +1,20 @@
 package com.shopshop.network
 
 import com.shopshop.model.RequestUser
+import com.shopshop.util.FakeDatabase
 
 class RemoteDataSource() {
 
     fun login(requestUser: RequestUser, onUserLoggedIn: (String?, Throwable?) -> Unit) {
         Thread {
-            Thread.sleep(2000)
-            onUserLoggedIn("token123", null)
+
+            FakeDatabase.login(requestUser) { res ->
+                if (res != null) {
+                    onUserLoggedIn(res.token, null)
+                } else {
+                    onUserLoggedIn(null, null)
+                }
+            }
         }.start()
     }
 
