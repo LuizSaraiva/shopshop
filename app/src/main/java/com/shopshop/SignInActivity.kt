@@ -2,16 +2,22 @@ package com.shopshop
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
-import android.widget.TextView
+import android.widget.Toast
+import com.github.razir.progressbutton.hideDrawable
+import com.github.razir.progressbutton.hideProgress
+import com.github.razir.progressbutton.showProgress
 import com.shopshop.databinding.ActivitySignInBinding
+import com.shopshop.model.RequestUser
+import com.shopshop.network.RemoteDataSource
 
 class SignInActivity : AppCompatActivity() {
 
-    lateinit var btnRegiterNow: TextView
     lateinit var binding: ActivitySignInBinding
+    val remoteData by lazy { RemoteDataSource() }
 
     companion object {
         fun launch(context: Context) {
@@ -33,5 +39,53 @@ class SignInActivity : AppCompatActivity() {
             SignUpActivity.launch(this)
         }
 
+        binding.btnLogin.setOnClickListener {
+            binding.btnLogin.showProgress {
+                progressColor = Color.WHITE
+            }
+
+            if (validateLogin())
+                doLogin()
+        }
     }
+
+    private fun doLogin() {
+
+        val email = this.binding.tieEmail.text.toString()
+        val pass = this.binding.tiePass.text.toString()
+
+        val user = RequestUser(null, pass, email)
+        remoteData.login(user) { token, throwable ->
+            if (token != null) {
+                MainActivity.launch(this@SignInActivity)
+            } else {
+                Toast.makeText(
+                    this@SignInActivity,
+                    getString(R.string.user_pass_invalid),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            println(token)
+        }
+    }
+
+    private fun validateLogin(): Boolean {
+
+        val email = this.binding.tieEmail.text.toString()
+        val pass = this.binding.tiePass.text.toString()
+
+        if (email.isEmpty() || pass.isEmpty()) {
+            Toast.makeText(
+                this@SignInActivity,
+                getString(R.string.fill_all_fields),
+                Toast.LENGTH_LONG
+            )
+                .show()
+
+            binding.btnLogin.hideProgress(R.string.login)
+            return false
+        }
+        return true
+    }
+
 }

@@ -4,8 +4,11 @@ import com.shopshop.model.RequestUser
 
 class RemoteDataSource() {
 
-    fun login(requestUser: RequestUser, onUserLoggedIn: (String?, Throwable) -> Unit) {
-
+    fun login(requestUser: RequestUser, onUserLoggedIn: (String?, Throwable?) -> Unit) {
+        Thread {
+            Thread.sleep(2000)
+            onUserLoggedIn("token123", null)
+        }.start()
     }
 
     fun register(requestUser: RequestUser, onUserRegiteredIn: (String?, Throwable?) -> Unit) {

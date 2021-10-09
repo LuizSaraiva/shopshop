@@ -11,4 +11,6 @@
     <string name="do_have_account">Já tem conta?</string>
     <string name="to_do_login">Fazer login</string>
     <string name="nome">Nome*</string>
+    <string name="user_pass_invalid">Login ou senha inválido!</string>
+    <string name="fill_all_fields">Preencha todos os campos!</string>
 </resources>
