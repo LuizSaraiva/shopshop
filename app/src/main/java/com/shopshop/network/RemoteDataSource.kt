@@ -1,5 +1,6 @@
 package com.shopshop.network
 
+import com.shopshop.App
 import com.shopshop.model.RequestUser
 import com.shopshop.util.FakeDatabase
 
@@ -10,6 +11,7 @@ class RemoteDataSource() {
 
             FakeDatabase.login(requestUser) { res ->
                 if (res != null) {
+                    App.saveToken(res.token)
                     onUserLoggedIn(res.token, null)
                 } else {
                     onUserLoggedIn(null, null)

@@ -21,7 +21,10 @@ class SignInActivity : AppCompatActivity() {
 
     companion object {
         fun launch(context: Context) {
-            context.startActivity(Intent(context, SignInActivity::class.java))
+            val intent = Intent(context, SignInActivity::class.java)
+
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            context.startActivity(intent)
         }
     }
 
