@@ -1,10 +1,10 @@
-package com.shopshop
+package com.shopshop.view
 
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
+import com.shopshop.model.Item
 import com.shopshop.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

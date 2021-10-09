@@ -1,4 +1,4 @@
-package com.shopshop
+package com.shopshop.model
 
 data class Item(
     val name:String,

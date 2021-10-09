@@ -1,4 +1,4 @@
-package com.shopshop
+package com.shopshop.view
 
 import android.content.Context
 import android.content.Intent

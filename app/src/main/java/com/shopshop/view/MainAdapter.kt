@@ -1,15 +1,13 @@
-package com.shopshop
+package com.shopshop.view
 
-import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.*
-import com.shopshop.MainAdapter.*
+import com.shopshop.model.Item
+import com.shopshop.view.MainAdapter.*
 import com.shopshop.databinding.ListItemBinding
-import java.util.zip.Inflater
 
 class MainAdapter : ListAdapter<Item, ItemViewHolder>(DiffItem()) {
 

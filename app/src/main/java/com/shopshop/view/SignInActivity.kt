@@ -1,4 +1,4 @@
-package com.shopshop
+package com.shopshop.view
 
 import android.content.Context
 import android.content.Intent
@@ -7,9 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.Toast
-import com.github.razir.progressbutton.hideDrawable
 import com.github.razir.progressbutton.hideProgress
 import com.github.razir.progressbutton.showProgress
+import com.shopshop.R
 import com.shopshop.databinding.ActivitySignInBinding
 import com.shopshop.model.RequestUser
 import com.shopshop.network.RemoteDataSource

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#68E3F2FD"
-    tools:context=".SignInActivity">
+    tools:context=".view.SignInActivity">
 
     <ImageView
         android:id="@+id/login_img_wave"
