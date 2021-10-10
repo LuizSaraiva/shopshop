@@ -8,7 +8,7 @@
     tools:context=".view.SignUpActivity">
 
     <ImageView
-        android:id="@+id/login_img_wave"
+        android:id="@+id/register_img_wave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:rotation="240"
@@ -33,17 +33,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/login_img_logo"
+        android:id="@+id/register_img_logo"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="-120dp"
         android:src="@drawable/shopshop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_img_wave" />
+        app:layout_constraintTop_toBottomOf="@id/register_img_wave" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cv_login"
+        android:id="@+id/cv_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -53,7 +53,7 @@
         app:cardElevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_img_logo">
+        app:layout_constraintTop_toBottomOf="@id/register_img_logo">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -88,7 +88,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:id="@+id/tie_name"
+                    android:id="@+id/register_tie_name"
                     android:layout_height="wrap_content"
                     android:drawableEnd="@drawable/ic_person"
                     android:inputType="text" />
@@ -103,7 +103,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:id="@+id/tie_email"
+                    android:id="@+id/register_tie_email"
                     android:layout_height="wrap_content"
                     android:drawableEnd="@drawable/ic_email"
                     android:inputType="textEmailAddress" />
@@ -119,7 +119,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tie_pass"
+                    android:id="@+id/register_tie_pass"
                     android:drawableEnd="@drawable/ic_key"
                     android:inputType="numberPassword" />
 
@@ -151,9 +151,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@id/cv_login"
-        app:layout_constraintStart_toStartOf="@id/cv_login"
-        app:layout_constraintTop_toBottomOf="@id/cv_login">
+        app:layout_constraintEnd_toEndOf="@id/cv_register"
+        app:layout_constraintStart_toStartOf="@id/cv_register"
+        app:layout_constraintTop_toBottomOf="@id/cv_register">
 
         <TextView
             android:layout_width="wrap_content"
@@ -164,7 +164,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv_do_login"
+            android:id="@+id/register_tv_do_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"

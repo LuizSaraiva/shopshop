@@ -13,4 +13,6 @@
     <string name="nome">Nome*</string>
     <string name="user_pass_invalid">Login ou senha inválido!</string>
     <string name="fill_all_fields">Preencha todos os campos!</string>
+    <string name="register_success">Cadastrado com sucesso!</string>
+    <string name="already_registered">Email já cadastrado!</string>
 </resources>

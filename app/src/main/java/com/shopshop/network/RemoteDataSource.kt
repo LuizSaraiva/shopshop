@@ -1,6 +1,7 @@
 package com.shopshop.network
 
 import com.shopshop.App
+import com.shopshop.model.RegisterRequest
 import com.shopshop.model.RequestUser
 import com.shopshop.util.FakeDatabase
 
@@ -20,10 +21,17 @@ class RemoteDataSource() {
         }.start()
     }
 
-    fun register(requestUser: RequestUser, onUserRegiteredIn: (String?, Throwable?) -> Unit) {
+    fun register(registerRequest: RegisterRequest, onUserCreated: (String?, Throwable?) -> Unit) {
         Thread {
-            Thread.sleep(1000)
-            onUserRegiteredIn("token", null)
+
+            FakeDatabase.register(registerRequest){res ->
+                if(res != null){
+                    App.saveToken(res.token)
+                    onUserCreated(res.token, null)
+                }else{
+                    onUserCreated(null, null)
+                }
+            }
         }.start()
     }
 }
