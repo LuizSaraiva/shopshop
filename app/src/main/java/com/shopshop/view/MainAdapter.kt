@@ -1,27 +1,43 @@
 package com.shopshop.view
 
+import android.graphics.drawable.GradientDrawable
+import android.graphics.drawable.LayerDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.*
-import com.shopshop.model.Item
+import com.shopshop.R
 import com.shopshop.view.MainAdapter.*
 import com.shopshop.databinding.ListItemBinding
+import com.shopshop.model.ItemResponse
 
-class MainAdapter : ListAdapter<Item, ItemViewHolder>(DiffItem()) {
+class MainAdapter : ListAdapter<ItemResponse, ItemViewHolder>(DiffItem()) {
 
-    class DiffItem : DiffUtil.ItemCallback<Item>() {
-        override fun areItemsTheSame(oldItem: Item, newItem: Item) = oldItem.id == newItem.id
-        override fun areContentsTheSame(oldItem: Item, newItem: Item) = oldItem == newItem
+    class DiffItem : DiffUtil.ItemCallback<ItemResponse>() {
+        override fun areItemsTheSame(oldItem: ItemResponse, newItem: ItemResponse) =
+            oldItem == newItem
+
+        override fun areContentsTheSame(oldItem: ItemResponse, newItem: ItemResponse) =
+            oldItem == newItem
     }
 
     inner class ItemViewHolder(val view: ListItemBinding) : ViewHolder(view.root) {
-        fun bind(item: Item) {
+        fun bind(item: ItemResponse) {
             with(view) {
-                itemTvTitle.text = item.name
+                itemTvTitle.text = item.title
                 itemTvDesc.text = item.desc
-                itemTvDate.text = "28/09/2021"
+                itemTvDate.text = item.data.toString()
+
+                val layerDrawable: LayerDrawable =
+                    ContextCompat.getDrawable(root.context, R.drawable.bottom_type) as LayerDrawable
+
+                val gradientDrawable:GradientDrawable = layerDrawable.findDrawableByLayerId(R.id.main_drawable) as GradientDrawable
+
+                gradientDrawable.setStroke(4,item.type)
+                itemContainer.background = layerDrawable
+
             }
         }
     }

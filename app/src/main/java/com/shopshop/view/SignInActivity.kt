@@ -17,7 +17,7 @@ import com.shopshop.network.RemoteDataSource
 class SignInActivity : AppCompatActivity() {
 
     lateinit var binding: ActivitySignInBinding
-    val remoteData by lazy { RemoteDataSource() }
+    private val remoteData by lazy { RemoteDataSource() }
 
     companion object {
         fun launch(context: Context) {
@@ -53,8 +53,8 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun doLogin() {
-        val email = this.binding.tieEmail.text.toString()
-        val pass = this.binding.tiePass.text.toString()
+        val email = this.binding.registerTieEmail.text.toString()
+        val pass = this.binding.registerTiePass.text.toString()
 
         val user = RequestUser(null, pass, email)
         remoteData.login(user) { token, throwable ->
@@ -76,8 +76,8 @@ class SignInActivity : AppCompatActivity() {
 
     private fun validateLogin(): Boolean {
 
-        val email = this.binding.tieEmail.text.toString()
-        val pass = this.binding.tiePass.text.toString()
+        val email = this.binding.registerTieEmail.text.toString()
+        val pass = this.binding.registerTiePass.text.toString()
 
         if (email.isEmpty() || pass.isEmpty()) {
             Toast.makeText(

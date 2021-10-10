@@ -1,6 +1,7 @@
 package com.shopshop.network
 
 import com.shopshop.App
+import com.shopshop.model.ItemResponse
 import com.shopshop.model.RegisterRequest
 import com.shopshop.model.RequestUser
 import com.shopshop.util.FakeDatabase
@@ -30,6 +31,18 @@ class RemoteDataSource() {
                     onUserCreated(res.token, null)
                 }else{
                     onUserCreated(null, null)
+                }
+            }
+        }.start()
+    }
+
+    fun getAll(onResponse:(List<ItemResponse>?, Throwable?) -> Unit){
+        Thread{
+            FakeDatabase.getAll(App.getToken()){ res ->
+                if(res != null){
+                    onResponse(res.list, null)
+                }else{
+                    onResponse(null, null)
                 }
             }
         }.start()

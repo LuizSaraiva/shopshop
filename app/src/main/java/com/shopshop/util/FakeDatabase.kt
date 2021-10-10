@@ -1,11 +1,11 @@
 package com.shopshop.util
 
-import com.shopshop.model.LoginResponse
-import com.shopshop.model.RegisterRequest
-import com.shopshop.model.RegisterResponse
-import com.shopshop.model.RequestUser
+import android.graphics.Color
+import com.shopshop.model.*
 import java.util.*
 import kotlin.collections.HashSet
+import kotlin.collections.LinkedHashMap
+import kotlin.collections.LinkedHashSet
 
 data class User(
     val name: String,
@@ -19,10 +19,17 @@ class FakeDatabase {
     companion object {
 
         private var users: HashSet<User> = hashSetOf()
+        private val items: LinkedHashSet<ItemResponse> = linkedSetOf()
 
         init {
             users.add(User("123", "123@gmail.com", "123", "abcd"))
             users.add(User("321", "321@gmail.com", "321", "dcba"))
+
+            items.add(ItemResponse("Açai no pote", "Teste descrição açai no pote", Date().time, Color.BLUE))
+            items.add(ItemResponse("1 duzia de laranja", "Teste descrição laranja", Date().time, Color.RED))
+            items.add(ItemResponse("Arroz", "Teste descrição arroz", Date().time, Color.BLACK))
+            items.add(ItemResponse("Feijao", "Teste descrição feijao", Date().time, Color.GREEN))
+
         }
 
         fun login(loginRequest: RequestUser, response: (LoginResponse?) -> Unit) {
@@ -60,5 +67,14 @@ class FakeDatabase {
                 response(RegisterResponse(newUser.token))
             }
         }
+
+
+        fun getAll(token: String?, response: (GetAllResponse?) -> Unit ){
+            Thread.sleep(2000)
+            val list = mutableListOf<ItemResponse>()
+            items.toCollection(list)
+            response(GetAllResponse(list))
+        }
+
     }
 }

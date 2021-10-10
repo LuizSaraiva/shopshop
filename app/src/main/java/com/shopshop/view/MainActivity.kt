@@ -7,11 +7,16 @@ import android.os.Bundle
 import com.shopshop.App
 import com.shopshop.databinding.ActivityMainBinding
 import com.shopshop.model.Item
+import com.shopshop.model.ItemResponse
+import com.shopshop.network.RemoteDataSource
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var adapter: MainAdapter
     lateinit var binding: ActivityMainBinding
+
+    private val remoteData by lazy { RemoteDataSource() }
 
     companion object {
         fun launch(context: Context) {
@@ -29,23 +34,22 @@ class MainActivity : AppCompatActivity() {
         adapter = MainAdapter()
         binding.mainRv.adapter = adapter
 
-        val listAdapter = listOf<Item>(
-            Item("Teste", "Teste1", 1),
-            Item("Teste", "Teste1", 1),
-            Item("Teste", "Teste1", 1),
-            Item("Teste", "Teste1", 1),
-            Item("Teste", "Teste1", 1),
-            Item("Teste", "Teste1", 1),
-            Item("Teste", "Teste1", 1),
-            Item("Teste", "Teste1", 1),
-        )
-
-        adapter.submitList(listAdapter)
-
         val token = App.getToken()
 
         if (token == null) {
             SignInActivity.launch(this@MainActivity)
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        remoteData.getAll { list, throwable ->
+            runOnUiThread {
+                list?.let {
+                    adapter.submitList(it)
+                }
+            }
         }
     }
 }
